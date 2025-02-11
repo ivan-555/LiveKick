@@ -1,0 +1,32 @@
+@use "variables" as var;
+
+.navbar{
+    background-color: var.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    height: var.$navbar-height;
+    position: relative;
+
+    span{
+        color: var.$white-color;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 7px;
+        cursor: pointer;
+        font-size: .9rem;
+        height: 60px;
+        width: 60px;
+        z-index: 1;
+        border-radius: 50%;
+        transition: all .2s ease-in-out;
+
+        &.active{
+            background: var.$highlight-color;
+            transform: translateY(-8px);
+        }
+    }
+}

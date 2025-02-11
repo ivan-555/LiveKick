@@ -1,0 +1,300 @@
+@use "variables" as var;
+@use "spiele-anzeige-template";
+
+.liga{
+    &.active{
+        display: block;
+    }
+
+    .heading{
+        background: var.$primary-color;
+        height: var.$liga-heading-height;
+        padding: 0 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+
+        .container{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            .liga-logo{
+                height: 50px;
+            }
+
+            .wrapper{
+                display: flex;
+                flex-direction: column;
+    
+                .liga-name{
+                    font-size: 1.5rem;
+                    font-weight: 600;
+                }
+    
+                .beschreibung{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    img{
+                        height: 20px;
+                    }
+    
+                    span:last-child{
+                        margin-left: 5px;
+                        padding: 5px;
+                        border-radius: 5px;
+                    }
+                }
+            }
+        }
+
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 7px 40px;
+            padding-top: 10px;
+
+            .slide-button{
+                cursor: pointer;
+                position: relative;
+                padding: 10px;
+
+                &::after{
+                    content: "";
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 3px;
+                    background: transparent;
+                    border-radius: 30px;
+                    transition: all .2s ease-in-out;
+                }
+
+                &.active::after{
+                    background: var.$highlight-color;
+                }
+            }
+        }
+    }
+
+    .window{
+        .slider{
+            display: grid;
+            grid-template-columns: repeat(3, 100vw);
+            transition: transform 0.5s ease-in-out;
+
+            .spiele{
+                @extend %spiele-anzeige-template;
+                height: calc(var.$page-height - var.$liga-heading-height);
+                overflow: scroll;
+            }
+
+            .tabelle{
+                margin: var.$spacing; // wie window padding durch %spiele-anzeige-template
+                padding: 10px 3px;
+                border-radius: var.$border-radius;
+                background: var.$primary-color;
+                height: calc(var.$page-height - var.$liga-heading-height - (var.$spacing * 2)); // - margin = (2* spacing)
+                overflow: scroll;
+    
+                .tags{
+                    display: grid;
+                    grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 1fr;
+                    gap: 10px;
+                    place-items: center;
+                    margin-bottom: 10px;
+                    color: grey;
+    
+                    span:nth-child(2){
+                        place-self: start;
+                    }
+                }
+    
+                ul{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+    
+                    li{
+                        display: grid;
+                        grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 1fr;
+                        gap: 10px;
+                        place-items: center;
+    
+                        img{
+                            height: 20px;
+                        }
+    
+                        .team{
+                            place-self: start;
+                            display: flex;
+                            align-items: center;
+                            gap: 5px;
+                        }
+                    }
+                }
+            }
+    
+            .info{
+                padding: var.$spacing;
+                display: flex;
+                flex-direction: column;
+                gap: var.$spacing;
+                height: calc(var.$page-height - var.$liga-heading-height);
+                overflow: scroll;
+                
+                .dauer{
+                    background: var.$primary-color;
+                    border-radius: var.$border-radius;
+                    padding: 20px;
+        
+                    .zeitstrahl{
+                        width: 100%;
+                        height: 7px;
+                        background: grey;
+                        border-radius: var.$border-radius;
+                        position: relative;
+                        overflow: hidden;
+        
+                        &::before{
+                            content: "";
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            width: 50%;
+                            height: 100%;
+                            background: rgb(112, 162, 255);
+                        }
+                    }
+        
+                    .wrapper{
+                        margin-top: 10px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                    }
+                }
+        
+                .ranking{
+                    background: var.$primary-color;
+                    border-radius: var.$border-radius;
+                    padding: 20px;
+                    text-align: center;
+        
+                    .wrapper{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 50px;
+                        margin-top: 30px;
+                        margin-bottom: 30px;
+        
+                        img{
+                            height: 50px;
+                        }
+        
+                        .titelverteidiger{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+        
+                            span:nth-child(3){
+                                color: grey;
+                            }
+                        }
+        
+                        .meiste-titel{
+                            display: flex;
+                            flex-direction: column;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 10px;
+        
+                            span:nth-child(3){
+                                color: grey;
+                            }
+                        }
+                    }
+        
+                    ul{
+                        margin-top: 30px;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+        
+                        li{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            gap: 20px;
+        
+                            span:nth-child(1){
+                                color: grey;
+                            }
+        
+                            div{
+                                display: flex;
+                                align-items: center;
+                                gap: 5px;
+        
+                                img{
+                                    height: 20px;
+                                }
+                            }
+                        }
+                    }
+                }
+        
+                .untere-liga{
+                    background: var.$primary-color;
+                    border-radius: var.$border-radius;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+        
+                    div{
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+        
+                        img{
+                            height: 20px;
+                        }
+                    }
+                }
+        
+                .aufsteiger{
+                    background: var.$primary-color;
+                    border-radius: var.$border-radius;
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 20px;
+        
+                    ul{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 10px;
+        
+                        li{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+        
+                            img{
+                                height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

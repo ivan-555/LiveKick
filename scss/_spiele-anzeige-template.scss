@@ -1,0 +1,93 @@
+@use "variables" as var;
+
+%spiele-anzeige-template{
+    padding: var.$spacing;
+
+    .tag{
+        .datum{
+            font-size: .8rem;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        &:nth-child(1){
+            .datum{
+                margin-top: 0;
+            }
+        }
+    }
+    
+    .spiele-liste{
+        background-color: var.$primary-color;
+        border-radius: var.$border-radius;
+    
+        .spiel{
+            .liga{
+                display: grid;
+                grid-template-columns: 70px 1fr;
+                padding: 15px 0;
+    
+                img{
+                    height: 20px;
+                    place-self: center;
+                }
+            }
+    
+            .wrapper{
+                display: grid;
+                grid-template-columns: 70px 1fr 50px;
+                align-items: center;
+                place-items: center;
+                padding: 10px 0;
+    
+                .zeit{
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 5px;
+                    font-size: .9rem;
+    
+                    .ticker{
+                        font-size: .8rem;
+                        color: var.$accent-color;
+                    }
+                }
+    
+                .teams{
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2px;
+                    place-self: start;
+                    padding-left: 10px;
+                    padding-right: 10px;
+                    width: 100%;
+                    border-left: 1px solid rgba(255, 255, 255, 0.182);
+                    border-right: 1px solid  rgba(255, 255, 255, 0.182);
+    
+                    .team{
+                        display: flex;
+                        align-items: center;
+                        position: relative;
+    
+                        .name{
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+    
+                            img{
+                                height: 17px;
+                            }
+                        }
+    
+                        .tore{
+                            color: var.$accent-color;
+                            position: absolute;
+                            top: 0;
+                            right: 0;
+                        }
+                    }
+                }
+            }
+        }   
+    }
+}

@@ -1,0 +1,14 @@
+@use 'variables' as var;
+
+header{
+    background-color: var.$primary-color;
+    height: var.$header-height;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        color: var.$white-color;
+        font-size: 1.2rem;
+    }
+}

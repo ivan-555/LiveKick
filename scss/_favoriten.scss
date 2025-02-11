@@ -1,0 +1,9 @@
+@use "spiele-anzeige-template";
+
+.favoriten{
+    @extend %spiele-anzeige-template;
+
+    &.active{
+        display: block;
+    }
+}

@@ -1,0 +1,10 @@
+@use "variables" as var;
+@use "spiele-anzeige-template";
+
+.alle-spiele{
+    @extend %spiele-anzeige-template;
+
+    &.active{
+        display: block;
+    }
+}

@@ -1,0 +1,35 @@
+@use "variables" as var;
+@use "header";
+@use "navbar";
+@use "ligen";
+@use "liga";
+@use "alle-spiele";
+@use "favoriten";
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    height: 100svh;
+    background: rgb(21, 21, 21);
+    overflow: hidden;
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+
+    .page{
+        color: var.$white-color;
+        height: var.$page-height;
+        overflow: scroll;
+        display: none; //wird in js per active klasse überschrieben
+    }
+}
+
+
+

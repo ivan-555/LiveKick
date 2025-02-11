@@ -1,0 +1,12 @@
+$primary-color: rgb(35, 35, 35);
+$accent-color: rgb(255, 0, 0);
+$highlight-color: rgb(15, 79, 188);
+$white-color: rgb(240, 240, 240);
+
+$header-height: 40px;
+$navbar-height: 55px;
+$page-height: calc(100svh - #{$header-height} - #{$navbar-height});
+$liga-heading-height: 120px;
+
+$spacing: 5px;
+$border-radius: 10px;
