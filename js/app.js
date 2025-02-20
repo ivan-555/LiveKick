@@ -36,17 +36,35 @@ ligaSelektors.forEach(selector => {
 
 
 // In der Liga zwischen den Slides wechseln
-const ligaSlider = document.querySelector('.liga .slider');
-const ligaSlideButtons = document.querySelectorAll('.liga .slide-button');
+const ligaPages = document.querySelectorAll('.page.liga');
 
-ligaSlideButtons.forEach((button, index) => {
-  button.addEventListener('click', () => {
-    ligaSlider.style.transform = `translateX(-${index * 100}%)`;
-    ligaSlideButtons.forEach(button => button.classList.remove('active'));
-    button.classList.add('active');
+ligaPages.forEach((ligaPage) => {
+  const ligaSlider = ligaPage.querySelector('.slider');
+  const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
+
+  ligaSlideButtons.forEach((button, index) => {
+    button.addEventListener('click', () => {
+      ligaSlider.style.transform = `translateX(-${index * 100}%)`;
+
+      ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+    });
   });
 });
 
 
-
-
+// Bei klick auf die Liga wird die Liga Seite angezeigt
+function showLigaPage (ligaTarget) {
+  pages.forEach(page => {
+    page.classList.remove('active');
+    if (page.classList.contains(ligaTarget)) {
+      page.classList.add('active');
+    }
+  });
+  navbarLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('data-target') === "ligen") {
+      link.classList.add('active');
+    }
+  });
+};
