@@ -3,6 +3,17 @@
 %spiele-anzeige-template{
     padding: var.$spacing;
 
+    .load-past, .load-future{
+        padding: 5px 10px;
+        cursor: pointer;
+        color: var.$white-color;
+        background-color: var.$highlight-color;
+        border: none;
+        border-radius: var.$border-radius;
+        display: block;
+        margin: var.$spacing auto;
+    }
+
     .tag{
         .datum{
             font-size: .8rem;
@@ -15,79 +26,109 @@
                 margin-top: 0;
             }
         }
-    }
-    
-    .spiele-liste{
-        background-color: var.$primary-color;
-        border-radius: var.$border-radius;
-    
-        .spiel{
-            .liga{
-                display: grid;
-                grid-template-columns: 70px 1fr;
-                padding: 15px 0;
-    
-                img{
-                    height: 20px;
-                    place-self: center;
-                }
-            }
-    
-            .wrapper{
-                display: grid;
-                grid-template-columns: 70px 1fr 50px;
-                align-items: center;
-                place-items: center;
-                padding: 10px 0;
-    
-                .zeit{
-                    display: flex;
-                    flex-direction: column;
-                    align-items: center;
-                    gap: 5px;
-                    font-size: .9rem;
-    
-                    .ticker{
-                        font-size: .8rem;
-                        color: var.$accent-color;
+
+        .spiele-liste{
+            background-color: var.$primary-color;
+            border-radius: var.$border-radius;
+        
+            .spiel{
+                .liga{
+                    display: grid;
+                    grid-template-columns: 70px 1fr;
+                    padding: 15px 0;
+        
+                    img{
+                        height: 20px;
+                        place-self: center;
                     }
                 }
-    
-                .teams{
-                    display: flex;
-                    flex-direction: column;
-                    gap: 2px;
-                    place-self: start;
-                    padding-left: 10px;
-                    padding-right: 10px;
-                    width: 100%;
-                    border-left: 1px solid rgba(255, 255, 255, 0.182);
-                    border-right: 1px solid  rgba(255, 255, 255, 0.182);
-    
-                    .team{
+        
+                .wrapper{
+                    display: grid;
+                    grid-template-columns: 70px 1fr 50px;
+                    align-items: center;
+                    place-items: center;
+                    padding: 10px 0;
+        
+                    .zeit{
                         display: flex;
+                        flex-direction: column;
                         align-items: center;
-                        position: relative;
+                        gap: 5px;
+                        font-size: .9rem;
+        
+                        .ticker{
+                            font-size: .8rem;
     
-                        .name{
+                            &.live{
+                                color: var.$accent-color;
+                            }
+                        }
+                    }
+        
+                    .teams{
+                        display: flex;
+                        flex-direction: column;
+                        gap: 5px;
+                        place-self: start;
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        width: 100%;
+                        border-left: 1px solid rgba(255, 255, 255, 0.182);
+                        border-right: 1px solid  rgba(255, 255, 255, 0.182);
+        
+                        .team{
                             display: flex;
                             align-items: center;
-                            gap: 10px;
+                            position: relative;
+        
+                            .name{
+                                display: flex;
+                                align-items: center;
+                                gap: 10px;
+        
+                                img{
+                                    height: 17px;
+                                }
+                            }
+        
+                            .tore{
+                                position: absolute;
+                                top: 0;
+                                right: 0;
     
-                            img{
-                                height: 17px;
+                                &.live{
+                                    color: var.$accent-color;
+                                }
+                            }
+                        }
+                    }
+    
+                    .favoriten-icon{
+                        color: var.$white-color;
+                        cursor: pointer;
+                        transition: all .3s;
+                        font-size: 1.1rem;
+    
+                        @keyframes starAnimation{
+                            0%{
+                                transform: scale(1);
+                            }
+                            50%{
+                                transform: scale(1.3);
+                            }
+                            100%{
+                                transform: scale(1);
                             }
                         }
     
-                        .tore{
-                            color: var.$accent-color;
-                            position: absolute;
-                            top: 0;
-                            right: 0;
+                        &.active{
+                            color: var.$highlight-color;
+                            animation: starAnimation .3s;
                         }
                     }
                 }
-            }
-        }   
+            }   
+        }
     }
 }

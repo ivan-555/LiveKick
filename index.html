@@ -9,7 +9,8 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- JS -->
-    <script src="js/pages.js" defer></script>
+    <script src="js/app.js" defer></script>
+    <script src="js/api.js" defer></script>
 </head>
 <body>
     <header>
@@ -19,237 +20,34 @@
     <main>
 
         <div class="page alle-spiele active">
-            <div class="tag gestern">
-                <span class="datum">Gestern - 02 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tag heute">
-                <span class="datum">Heute - 03 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tag morgen">
-                <span class="datum">Morgen - 04 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <button class="load-past">Frühere Spiele laden</button>
+            <div class="container"></div>
+            <button class="load-future">Spätere Spiele laden</button>
         </div>
     
         <div class="page ligen">
             <div class="liga-selektor" data-target="serie-a">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/serie-a-logo.png" alt="">
                 <span>Serie A</span>
             </div>
             <div class="liga-selektor" data-target="la-liga">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/la-liga-logo.png" alt="">
                 <span>La Liga</span>
             </div>
             <div class="liga-selektor" data-target="premier-league">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/premier-league-logo.png" alt="">
                 <span>Premier League</span>
             </div>
             <div class="liga-selektor" data-target="bundesliga">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/bundesliga-logo.avif" alt="">
                 <span>Bundesliga</span>
             </div>
             <div class="liga-selektor" data-target="ligue-1">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/ligue-1-logo.png" alt="">
                 <span>Ligue 1</span>
             </div>
             <div class="liga-selektor" data-target="champions-league">
-                <img src="img/serie-a-logo.png" alt="">
+                <img src="img/Ligen/champions-league-logo.png" alt="">
                 <span>Champions League</span>
             </div>
         </div>
@@ -257,11 +55,11 @@
         <div class="page liga serie-a">
             <div class="heading">
                 <div class="container">
-                    <img src="img/serie-a-logo.png" alt="" class="liga-logo">
+                    <img src="img/Ligen/serie-a-logo.png" alt="Logo" class="liga-logo">
                     <div class="wrapper">
                         <span class="liga-name">Serie A</span>
                         <div class="beschreibung">
-                            <img src="img/inter-logo.png" alt="">
+                            <img src="img/Länder/italien-flagge.png" alt="Flagge">
                             <span>Italien</span>
                             <span>24/25</span>
                         </div>
@@ -276,212 +74,11 @@
             <div class="window">
                 <div class="slider">
                     <div class="slide spiele">
-                        <div class="tag gestern">
-                            <span class="datum">Gestern - 02 Februar</span>
-                            <div class="spiele-liste">
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tag heute">
-                            <span class="datum">Heute - 03 Februar</span>
-                            <div class="spiele-liste">
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="tag morgen">
-                            <span class="datum">Morgen - 04 Februar</span>
-                            <div class="spiele-liste">
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="spiel">
-                                    <div class="liga">
-                                        <img src="img/serie-a-logo.png" alt="">
-                                        <span>Serie A</span>
-                                    </div>
-                                    <div class="wrapper">
-                                        <div class="zeit">
-                                            <span>18:45</span>
-                                            <span class="ticker">15`</span>
-                                        </div>
-                                        <div class="teams">
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Inter</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                            <div class="team">
-                                                <div class="name">
-                                                    <img src="img/inter-logo.png" alt="">
-                                                    <span>Milan</span>
-                                                </div>
-                                                <span class="tore">0</span>
-                                            </div>
-                                        </div>
-                                        <div class="favoriten-icon">
-                                            <i class="fa-solid fa-star"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
                     </div>
-                    
+                        
                     <div class="slide tabelle">
                         <div class="tags">
                             <span>#</span>
@@ -492,11 +89,11 @@
                             <span>N</span>
                             <span>U</span>
                         </div>
-                        <ul>
-                            <li>
+                        <ul class="liste">
+                            <!-- <li>
                                 <span class="rang">1</span>
                                 <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     Napoli
                                 </span>
                                 <span class="gespielt">20</span>
@@ -504,235 +101,7 @@
                                 <span class="siege">15</span>
                                 <span class="niederlagen">3</span>
                                 <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">2</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Inter
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">3</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Atalanta
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">4</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Lazio
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">5</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">6</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">7</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">8</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">9</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">10</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">11</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">12</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">13</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">14</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">15</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">16</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">17</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">18</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">19</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
-                            <li>
-                                <span class="rang">20</span>
-                                <span class="team">
-                                    <img src="img/inter-logo.png" alt="">
-                                    Juventus
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
-                            </li>
+                            </li> -->
                         </ul>
                     </div>
 
@@ -748,12 +117,12 @@
                             <span>Ranking</span>
                             <div class="wrapper">
                                 <div class="titelverteidiger">
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     <span>Inter</span>
                                     <span>Titelverteidiger</span>
                                 </div>
                                 <div class="meiste-titel">
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     <span>Juventus</span>
                                     <span>Meiste Titel</span>
                                 </div>
@@ -763,35 +132,35 @@
                                 <li>
                                     <span>2023/24</span>
                                     <div>
-                                        <img src="img/inter-logo.png" alt="">
+                                        <img src="" alt="">
                                         <span>Inter</span>
                                     </div>
                                 </li>
                                 <li>
                                     <span>2022/23</span>
                                     <div>
-                                        <img src="img/inter-logo.png" alt="">
+                                        <img src="" alt="">
                                         <span>Inter</span>
                                     </div>
                                 </li>
                                 <li>
                                     <span>2021/22</span>
                                     <div>
-                                        <img src="img/inter-logo.png" alt="">
+                                        <img src="" alt="">
                                         <span>Inter</span>
                                     </div>
                                 </li>
                                 <li>
                                     <span>2020/21</span>
                                     <div>
-                                        <img src="img/inter-logo.png" alt="">
+                                        <img src="" alt="">
                                         <span>Inter</span>
                                     </div>
                                 </li>
                                 <li>
                                     <span>2019/20</span>
                                     <div>
-                                        <img src="img/inter-logo.png" alt="">
+                                        <img src="" alt="">
                                         <span>Inter</span>
                                     </div>
                                 </li>
@@ -800,7 +169,7 @@
                         <div class="untere-liga">
                             <span>Untere Liga</span>
                             <div>
-                                <img src="img/serie-a-logo.png" alt="">
+                                <img src="" alt="">
                                 <span>Serie B</span>
                             </div>
                         </div>
@@ -808,15 +177,15 @@
                             <span>Aufsteiger aus unterer Liga</span>
                             <ul>
                                 <li>
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     <span>Inter</span>
                                 </li>
                                 <li>
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     <span>Inter</span>
                                 </li>
                                 <li>
-                                    <img src="img/inter-logo.png" alt="">
+                                    <img src="" alt="">
                                     <span>Inter</span>
                                 </li>
                             </ul>
@@ -827,227 +196,722 @@
         </div>
 
         <div class="page liga la-liga">
+            <div class="heading">
+                <div class="container">
+                    <img src="img/Ligen/la-liga-logo.png" alt="Logo" class="liga-logo">
+                    <div class="wrapper">
+                        <span class="liga-name">La Liga</span>
+                        <div class="beschreibung">
+                            <img src="img/Länder/spanien-flagge.webp" alt="Flagge">
+                            <span>Spanien</span>
+                            <span>24/25</span>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <span class="slide-button active" data-target="spiele">Spiele</span>
+                    <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    <span class="slide-button" data-target="info">Info</span>
+                </nav>
+            </div>
+            <div class="window">
+                <div class="slider">
+                    <div class="slide spiele">
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
+                    </div>
+                        
+                    <div class="slide tabelle">
+                        <div class="tags">
+                            <span>#</span>
+                            <span>Team</span>
+                            <span>S</span>
+                            <span>P</span>
+                            <span>S</span>
+                            <span>N</span>
+                            <span>U</span>
+                        </div>
+                        <ul class="liste">
+                            <!-- <li>
+                                <span class="rang">1</span>
+                                <span class="team">
+                                    <img src="" alt="">
+                                    Napoli
+                                </span>
+                                <span class="gespielt">20</span>
+                                <span class="punkte">47</span>
+                                <span class="siege">15</span>
+                                <span class="niederlagen">3</span>
+                                <span class="unentschieden">2</span>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="slide info">
+                        <div class="dauer">
+                            <div class="zeitstrahl"></div>
+                            <div class="wrapper">
+                                <span class="start">17. Aug.</span>
+                                <span class="ende">25. Mai</span>
+                            </div>
+                        </div>
+                        <div class="ranking">
+                            <span>Ranking</span>
+                            <div class="wrapper">
+                                <div class="titelverteidiger">
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                    <span>Titelverteidiger</span>
+                                </div>
+                                <div class="meiste-titel">
+                                    <img src="" alt="">
+                                    <span>Juventus</span>
+                                    <span>Meiste Titel</span>
+                                </div>
+                            </div>
+                            <span>Sieger der letsten 5 Jahre</span>
+                            <ul>
+                                <li>
+                                    <span>2023/24</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2022/23</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2021/22</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2020/21</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2019/20</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="untere-liga">
+                            <span>Untere Liga</span>
+                            <div>
+                                <img src="" alt="">
+                                <span>Serie B</span>
+                            </div>
+                        </div>
+                        <div class="aufsteiger">
+                            <span>Aufsteiger aus unterer Liga</span>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page liga premier-league">
+            <div class="heading">
+                <div class="container">
+                    <img src="img/Ligen/premier-league-logo.png" alt="Logo" class="liga-logo">
+                    <div class="wrapper">
+                        <span class="liga-name">Premier League</span>
+                        <div class="beschreibung">
+                            <img src="img/Länder/england-flagge.webp" alt="Flagge">
+                            <span>England</span>
+                            <span>24/25</span>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <span class="slide-button active" data-target="spiele">Spiele</span>
+                    <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    <span class="slide-button" data-target="info">Info</span>
+                </nav>
+            </div>
+            <div class="window">
+                <div class="slider">
+                    <div class="slide spiele">
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
+                    </div>
+                        
+                    <div class="slide tabelle">
+                        <div class="tags">
+                            <span>#</span>
+                            <span>Team</span>
+                            <span>S</span>
+                            <span>P</span>
+                            <span>S</span>
+                            <span>N</span>
+                            <span>U</span>
+                        </div>
+                        <ul class="liste">
+                            <!-- <li>
+                                <span class="rang">1</span>
+                                <span class="team">
+                                    <img src="" alt="">
+                                    Napoli
+                                </span>
+                                <span class="gespielt">20</span>
+                                <span class="punkte">47</span>
+                                <span class="siege">15</span>
+                                <span class="niederlagen">3</span>
+                                <span class="unentschieden">2</span>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="slide info">
+                        <div class="dauer">
+                            <div class="zeitstrahl"></div>
+                            <div class="wrapper">
+                                <span class="start">17. Aug.</span>
+                                <span class="ende">25. Mai</span>
+                            </div>
+                        </div>
+                        <div class="ranking">
+                            <span>Ranking</span>
+                            <div class="wrapper">
+                                <div class="titelverteidiger">
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                    <span>Titelverteidiger</span>
+                                </div>
+                                <div class="meiste-titel">
+                                    <img src="" alt="">
+                                    <span>Juventus</span>
+                                    <span>Meiste Titel</span>
+                                </div>
+                            </div>
+                            <span>Sieger der letsten 5 Jahre</span>
+                            <ul>
+                                <li>
+                                    <span>2023/24</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2022/23</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2021/22</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2020/21</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2019/20</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="untere-liga">
+                            <span>Untere Liga</span>
+                            <div>
+                                <img src="" alt="">
+                                <span>Serie B</span>
+                            </div>
+                        </div>
+                        <div class="aufsteiger">
+                            <span>Aufsteiger aus unterer Liga</span>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page liga bundesliga">
+            <div class="heading">
+                <div class="container">
+                    <img src="img/Ligen/bundesliga-logo.avif" alt="Logo" class="liga-logo">
+                    <div class="wrapper">
+                        <span class="liga-name">Bundesliga</span>
+                        <div class="beschreibung">
+                            <img src="img/Länder/deutschland-flagge.png" alt="Flagge">
+                            <span>Deutschland</span>
+                            <span>24/25</span>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <span class="slide-button active" data-target="spiele">Spiele</span>
+                    <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    <span class="slide-button" data-target="info">Info</span>
+                </nav>
+            </div>
+            <div class="window">
+                <div class="slider">
+                    <div class="slide spiele">
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
+                    </div>
+                        
+                    <div class="slide tabelle">
+                        <div class="tags">
+                            <span>#</span>
+                            <span>Team</span>
+                            <span>S</span>
+                            <span>P</span>
+                            <span>S</span>
+                            <span>N</span>
+                            <span>U</span>
+                        </div>
+                        <ul class="liste">
+                            <!-- <li>
+                                <span class="rang">1</span>
+                                <span class="team">
+                                    <img src="" alt="">
+                                    Napoli
+                                </span>
+                                <span class="gespielt">20</span>
+                                <span class="punkte">47</span>
+                                <span class="siege">15</span>
+                                <span class="niederlagen">3</span>
+                                <span class="unentschieden">2</span>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="slide info">
+                        <div class="dauer">
+                            <div class="zeitstrahl"></div>
+                            <div class="wrapper">
+                                <span class="start">17. Aug.</span>
+                                <span class="ende">25. Mai</span>
+                            </div>
+                        </div>
+                        <div class="ranking">
+                            <span>Ranking</span>
+                            <div class="wrapper">
+                                <div class="titelverteidiger">
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                    <span>Titelverteidiger</span>
+                                </div>
+                                <div class="meiste-titel">
+                                    <img src="" alt="">
+                                    <span>Juventus</span>
+                                    <span>Meiste Titel</span>
+                                </div>
+                            </div>
+                            <span>Sieger der letsten 5 Jahre</span>
+                            <ul>
+                                <li>
+                                    <span>2023/24</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2022/23</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2021/22</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2020/21</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2019/20</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="untere-liga">
+                            <span>Untere Liga</span>
+                            <div>
+                                <img src="" alt="">
+                                <span>Serie B</span>
+                            </div>
+                        </div>
+                        <div class="aufsteiger">
+                            <span>Aufsteiger aus unterer Liga</span>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page liga ligue-1">
+            <div class="heading">
+                <div class="container">
+                    <img src="img/Ligen/ligue-1-logo.png" alt="Logo" class="liga-logo">
+                    <div class="wrapper">
+                        <span class="liga-name">Ligue 1</span>
+                        <div class="beschreibung">
+                            <img src="img/Länder/frankreich-flagge.webp" alt="Flagge">
+                            <span>Frankreich</span>
+                            <span>24/25</span>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <span class="slide-button active" data-target="spiele">Spiele</span>
+                    <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    <span class="slide-button" data-target="info">Info</span>
+                </nav>
+            </div>
+            <div class="window">
+                <div class="slider">
+                    <div class="slide spiele">
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
+                    </div>
+                        
+                    <div class="slide tabelle">
+                        <div class="tags">
+                            <span>#</span>
+                            <span>Team</span>
+                            <span>S</span>
+                            <span>P</span>
+                            <span>S</span>
+                            <span>N</span>
+                            <span>U</span>
+                        </div>
+                        <ul class="liste">
+                            <!-- <li>
+                                <span class="rang">1</span>
+                                <span class="team">
+                                    <img src="" alt="">
+                                    Napoli
+                                </span>
+                                <span class="gespielt">20</span>
+                                <span class="punkte">47</span>
+                                <span class="siege">15</span>
+                                <span class="niederlagen">3</span>
+                                <span class="unentschieden">2</span>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="slide info">
+                        <div class="dauer">
+                            <div class="zeitstrahl"></div>
+                            <div class="wrapper">
+                                <span class="start">17. Aug.</span>
+                                <span class="ende">25. Mai</span>
+                            </div>
+                        </div>
+                        <div class="ranking">
+                            <span>Ranking</span>
+                            <div class="wrapper">
+                                <div class="titelverteidiger">
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                    <span>Titelverteidiger</span>
+                                </div>
+                                <div class="meiste-titel">
+                                    <img src="" alt="">
+                                    <span>Juventus</span>
+                                    <span>Meiste Titel</span>
+                                </div>
+                            </div>
+                            <span>Sieger der letsten 5 Jahre</span>
+                            <ul>
+                                <li>
+                                    <span>2023/24</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2022/23</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2021/22</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2020/21</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2019/20</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="untere-liga">
+                            <span>Untere Liga</span>
+                            <div>
+                                <img src="" alt="">
+                                <span>Serie B</span>
+                            </div>
+                        </div>
+                        <div class="aufsteiger">
+                            <span>Aufsteiger aus unterer Liga</span>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page liga champions-league">
+            <div class="heading">
+                <div class="container">
+                    <img src="img/Ligen/champions-league-logo.png" alt="Logo" class="liga-logo">
+                    <div class="wrapper">
+                        <span class="liga-name">Champions League</span>
+                        <div class="beschreibung">
+                            <img src="img/Länder/europa-flagge.png" alt="Flagge">
+                            <span>Europa</span>
+                            <span>24/25</span>
+                        </div>
+                    </div>
+                </div>
+                <nav>
+                    <span class="slide-button active" data-target="spiele">Spiele</span>
+                    <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    <span class="slide-button" data-target="info">Info</span>
+                </nav>
+            </div>
+            <div class="window">
+                <div class="slider">
+                    <div class="slide spiele">
+                        <button class="load-past">Frühere Spiele laden</button>
+                        <div class="container"></div>
+                        <button class="load-future">Spätere Spiele laden</button>
+                    </div>
+                        
+                    <div class="slide tabelle">
+                        <div class="tags">
+                            <span>#</span>
+                            <span>Team</span>
+                            <span>S</span>
+                            <span>P</span>
+                            <span>S</span>
+                            <span>N</span>
+                            <span>U</span>
+                        </div>
+                        <ul class="liste">
+                            <!-- <li>
+                                <span class="rang">1</span>
+                                <span class="team">
+                                    <img src="" alt="">
+                                    Napoli
+                                </span>
+                                <span class="gespielt">20</span>
+                                <span class="punkte">47</span>
+                                <span class="siege">15</span>
+                                <span class="niederlagen">3</span>
+                                <span class="unentschieden">2</span>
+                            </li> -->
+                        </ul>
+                    </div>
+
+                    <div class="slide info">
+                        <div class="dauer">
+                            <div class="zeitstrahl"></div>
+                            <div class="wrapper">
+                                <span class="start">17. Aug.</span>
+                                <span class="ende">25. Mai</span>
+                            </div>
+                        </div>
+                        <div class="ranking">
+                            <span>Ranking</span>
+                            <div class="wrapper">
+                                <div class="titelverteidiger">
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                    <span>Titelverteidiger</span>
+                                </div>
+                                <div class="meiste-titel">
+                                    <img src="" alt="">
+                                    <span>Juventus</span>
+                                    <span>Meiste Titel</span>
+                                </div>
+                            </div>
+                            <span>Sieger der letsten 5 Jahre</span>
+                            <ul>
+                                <li>
+                                    <span>2023/24</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2022/23</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2021/22</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2020/21</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <span>2019/20</span>
+                                    <div>
+                                        <img src="" alt="">
+                                        <span>Inter</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="untere-liga">
+                            <span>Untere Liga</span>
+                            <div>
+                                <img src="" alt="">
+                                <span>Serie B</span>
+                            </div>
+                        </div>
+                        <div class="aufsteiger">
+                            <span>Aufsteiger aus unterer Liga</span>
+                            <ul>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                                <li>
+                                    <img src="" alt="">
+                                    <span>Inter</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="page favoriten">
-            <div class="tag gestern">
-                <span class="datum">Gestern - 02 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tag heute">
-                <span class="datum">Heute - 03 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tag morgen">
-                <span class="datum">Morgen - 04 Februar</span>
-                <div class="spiele-liste">
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="spiel">
-                        <div class="liga">
-                            <img src="img/serie-a-logo.png" alt="">
-                            <span>Serie A</span>
-                        </div>
-                        <div class="wrapper">
-                            <div class="zeit">
-                                <span>18:45</span>
-                                <span class="ticker">15`</span>
-                            </div>
-                            <div class="teams">
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Inter</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                                <div class="team">
-                                    <div class="name">
-                                        <img src="img/inter-logo.png" alt="">
-                                        <span>Milan</span>
-                                    </div>
-                                    <span class="tore">0</span>
-                                </div>
-                            </div>
-                            <div class="favoriten-icon">
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <div class="container"></div>
         </div>
 
     </main>
