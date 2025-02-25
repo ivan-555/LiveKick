@@ -500,6 +500,3 @@ async function scrollToToday() {
     }
   });
 }
-
-
-
