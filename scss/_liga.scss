@@ -84,16 +84,19 @@
         .slider{
             display: grid;
             grid-template-columns: repeat(3, 100vw);
+            transform: translateX(0); // Notwendig damit fixed Elemente nicht verrutschen
             transition: transform 0.5s ease-in-out;
 
-            .spiele{
-                @extend %spiele-anzeige-template;
+            .slide.spiele{
                 height: calc(var.$page-height - var.$liga-heading-height);
-                overflow: scroll;
 
-                .spiel{
-                    .liga{
-                        display: none !important;
+                .spiele-anzeige{
+                    @extend %spiele-anzeige-template;
+
+                    .spiel{
+                        .liga{
+                            display: none !important;
+                        }
                     }
                 }
             }

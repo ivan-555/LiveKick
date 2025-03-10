@@ -6,17 +6,20 @@ let premierLeagueMatches = [];
 let laLigaMatches = [];
 let ligue1Matches = [];
 let championsLeagueMatches = [];
+let favoriteIconAnimationState = {};
+
 
 const daysState = {
-  "alle-spiele":        { past: 15, future: 15 },
-  "serie-a":            { past: 15, future: 15 },
-  "la-liga":            { past: 15, future: 15 },
-  "premier-league":     { past: 15, future: 15 },
-  "bundesliga":         { past: 15, future: 15 },
-  "ligue-1":            { past: 15, future: 15 },
-  "champions-league":   { past: 15, future: 15 },
+  "alle-spiele":        { past: 5, future: 15 },
+  "serie-a":            { past: 5, future: 15 },
+  "la-liga":            { past: 5, future: 15 },
+  "premier-league":     { past: 5, future: 15 },
+  "bundesliga":         { past: 5, future: 15 },
+  "ligue-1":            { past: 5, future: 15 },
+  "champions-league":   { past: 5, future: 15 },
 };
 
+// Funktion um die Spiele nach Zeitraum zu filtern
 function getVisibleMatches(matchesArray, leagueKey) {
   // Bei Favoriten, soll kein Filter angewendet werden
   if (leagueKey === "favoriten") {
@@ -44,77 +47,68 @@ function getVisibleMatches(matchesArray, leagueKey) {
   });
 }
 
-function initLoadMoreButtons() {
-  // Alle-Spiele
-  document.querySelector(".page.alle-spiele .load-past").addEventListener("click", () => {
-    daysState["alle-spiele"].past += 15;
-    renderAlleSpiele(); // Nur alle-spiele neu
-  });
-  document.querySelector(".page.alle-spiele .load-future").addEventListener("click", () => {
-    daysState["alle-spiele"].future += 15;
-    renderAlleSpiele();
-  });
-
-  // Serie A
-  document.querySelector(".page.liga.serie-a .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["serie-a"].past += 15;
-    renderSerieA();
-  });
-  document.querySelector(".page.liga.serie-a .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["serie-a"].future += 15;
-    renderSerieA();
-  });
-
-  // Bundesliga
-  document.querySelector(".page.liga.bundesliga .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["bundesliga"].past += 15;
-    renderBundesliga();
-  });
-  document.querySelector(".page.liga.bundesliga .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["bundesliga"].future += 15;
-    renderBundesliga();
-  });
-
-  // La Liga
-  document.querySelector(".page.liga.la-liga .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["la-liga"].past += 15;
-    renderLaLiga();
-  });
-  document.querySelector(".page.liga.la-liga .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["la-liga"].future += 15;
-    renderLaLiga();
-  });
-
-  // Premier League
-  document.querySelector(".page.liga.premier-league .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["premier-league"].past += 15;
-    renderPremierLeague();
-  });
-  document.querySelector(".page.liga.premier-league .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["premier-league"].future += 15;
-    renderPremierLeague();
-  });
-
-  // Ligue 1
-  document.querySelector(".page.liga.ligue-1 .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["ligue-1"].past += 15;
-    renderLigue1();
-  });
-  document.querySelector(".page.liga.ligue-1 .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["ligue-1"].future += 15;
-    renderLigue1();
-  });
-
-  // Champions League
-  document.querySelector(".page.liga.champions-league .slide.spiele .load-past").addEventListener("click", () => {
-    daysState["champions-league"].past += 15;
-    renderChampionsLeague();
-  });
-  document.querySelector(".page.liga.champions-league .slide.spiele .load-future").addEventListener("click", () => {
-    daysState["champions-league"].future += 15;
-    renderChampionsLeague();
-  });
+// Funktion um zum aktuellen Tag zu scrollen
+function scrollToCurrentDay(containerSelector, behavior = "auto") {
+  const page = document.querySelector(containerSelector);
+  const currentDay = page.querySelector(".tag.current");
+  if (currentDay) {
+    currentDay.scrollIntoView({ behavior, block: "start" });
+  }
 }
+
+// Funktion, die die Sichtbarkeit des "show-current-day" Buttons steuert
+function updateShowCurrentDayButtonVisibility(container) {
+  const currentDay = container.querySelector(".tag.current");
+  if (!currentDay) return;
+  const button = container.querySelector(".show-current-day");
+  if (!button) return;
+  const buttonArrow = container.querySelector(".show-current-day i");
+  if (!buttonArrow) return;
+  
+  // Berechne die Positionen mit getBoundingClientRect()
+  const containerRect = container.getBoundingClientRect();
+  const currentRect = currentDay.getBoundingClientRect();
+  const distance = currentRect.top - containerRect.top;
+  
+  // Pfeil: wenn currentDay oberhalb (distance < 0) → Pfeil nach oben, sonst nach unten
+  if (distance < 0) {
+    buttonArrow.classList.add("up");
+    buttonArrow.classList.remove("down");
+  } else {
+    buttonArrow.classList.add("down");
+    buttonArrow.classList.remove("up");
+  }
+  
+  // Button sichtbar, wenn die absolute Differenz einen Threshold überschreitet
+  if (Math.abs(distance) > 500) {
+    button.classList.add("visible");
+  } else {
+    button.classList.remove("visible");
+  }
+}
+// Scroll Event Listener für die Sichtbarkeit des "show-current-day" Buttons
+function initShowCurrentDayButtonVisibility(containerSelector, threshold = 500) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
+  
+  container.addEventListener("scroll", () => {
+    updateShowCurrentDayButtonVisibility(container);
+  });
+  
+  // initialer Aufruf
+  updateShowCurrentDayButtonVisibility(container);
+}
+function initShowCurrentDayButtonVisibilityAll() {
+  initShowCurrentDayButtonVisibility(".page.alle-spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.serie-a .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.bundesliga .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.la-liga .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.premier-league .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.ligue-1 .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.liga.champions-league .slide.spiele .spiele-anzeige", 500);
+  initShowCurrentDayButtonVisibility(".page.favoriten .spiele-anzeige", 500);
+}
+
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Hauptfunktion zum Daten fetchen
@@ -173,43 +167,12 @@ async function fetchMatches() {
 function renderMatches(matchesArray, containerSelector, leagueKey) {
   // Nur die "sichtbaren" Spiele aus dem Gesamtarray holen
   let visibleMatches = null;
-  if (leagueKey === "favoriten") {
-    visibleMatches = matchesArray;
-  } else {
-    visibleMatches = getVisibleMatches(matchesArray, leagueKey);
-  }
-  
-  // load more buttons anzeigen/verstecken
-  if (leagueKey !== "favoriten") {
-    const pastButton = document.querySelector(`.page.${leagueKey} .load-past`);
-    const futureButton = document.querySelector(`.page.${leagueKey} .load-future`);
-    const now = new Date();
-    now.setHours(0, 0, 0, 0);
-    // Zählt alle verfügbaren Matches in der Vergangenheit und Zukunft
-    const availablePast = matchesArray.filter(match => new Date(match.utcDate) < now);
-    const availableFuture = matchesArray.filter(match => new Date(match.utcDate) > now);
-    // Zählt, wie viele der sichtbaren Matches in der Vergangenheit bzw. Zukunft liegen
-    const visiblePast = visibleMatches.filter(match => new Date(match.utcDate) < now);
-    const visibleFuture = visibleMatches.filter(match => new Date(match.utcDate) > now);
-    // Wenn alle verfügbaren vergangenen Matches sichtbar sind, verstecke den "Load Past"-Button
-    if (visiblePast.length >= availablePast.length) {
-      pastButton.style.display = "none";
-    } else {
-      pastButton.style.display = "block";
-    }
-    // Entsprechend für zukünftige Matches
-    if (visibleFuture.length >= availableFuture.length) {
-      futureButton.style.display = "none";
-    } else {
-      futureButton.style.display = "block";
-    }
-  }
+  visibleMatches = getVisibleMatches(matchesArray, leagueKey);
 
   // Erstellt ein Objekt, das alle Spiele in Datums-Arrays gruppiert
   const matchesByDate = {};
   visibleMatches.forEach(match => {
     const dateKey = new Date(match.utcDate).toISOString().slice(0, 10); // "2025-02-03"
-    
     // Wenn es noch keine Spiele für dieses Datum gibt, erstelle ein leeres Array
     if (!matchesByDate[dateKey]) {
       matchesByDate[dateKey] = [];
@@ -220,9 +183,66 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
   // Erstellt ein Objekt, das die gruppierten Datums nach Datum sortiert
   const sortedDates = Object.keys(matchesByDate).sort();
 
-  // Auf das Container-Element zugreifen (z.B. ".alle-spiele" oder ".liga.serie-a")
+  // Bestimme nächstes Datum
+  const todayIso = new Date().toISOString().slice(0,10);
+  let upcomingDate = sortedDates.find(dateStr => dateStr >= todayIso);
+  if (!upcomingDate && sortedDates.length > 0) {
+    upcomingDate = sortedDates[sortedDates.length - 1];
+  }
+
+  // Auf das Container-Element zugreifen
   const container = document.querySelector(containerSelector);
-  container.innerHTML = ""; // Lösche den Inhalt des Containers
+
+  // Zustand des Buttons sichern, falls er existiert
+  let previousButtonState = null;
+  const existingButton = container.querySelector(".show-current-day");
+  if (existingButton) {
+    previousButtonState = {
+      visible: existingButton.classList.contains("visible"),
+      arrowUp: existingButton.querySelector("i").classList.contains("up")
+    };
+  }
+
+  container.innerHTML = ""; // Reset des Inhalts
+
+  // Load Past Button erstellen
+  const loadPastButton = document.createElement("button");
+  loadPastButton.classList.add("load-past");
+  loadPastButton.textContent = "Frühere Spiele laden";
+  container.appendChild(loadPastButton);
+  loadPastButton.addEventListener("click", () => {
+    // Scroll-Position merken
+    const oldScrollHeight = container.scrollHeight;
+    const oldScrollTop = container.scrollTop;
+
+    daysState[leagueKey].past += 10;
+    renderMatches(matchesArray, containerSelector, leagueKey);
+
+    // Scroll-Position wiederherstellen
+    const newScrollHeight = container.scrollHeight;
+    container.scrollTop = oldScrollTop + (newScrollHeight - oldScrollHeight);
+  });
+
+  // Show Current Day Button erstellen
+  const showCurrentDayButton = document.createElement("button");
+  showCurrentDayButton.classList.add("show-current-day");
+  showCurrentDayButton.innerHTML = `<i class="fa-solid fa-chevron-down"></i>Zum aktuellen Tag`;
+  // Übernimm den vorherigen Zustand, falls vorhanden
+  if (previousButtonState) {
+    if (previousButtonState.visible) {
+      showCurrentDayButton.classList.add("visible");
+    }
+    const arrow = showCurrentDayButton.querySelector("i");
+    if (previousButtonState.arrowUp) {
+      arrow.classList.add("up");
+    } else {
+      arrow.classList.add("down");
+    }
+  }
+  container.appendChild(showCurrentDayButton);
+  showCurrentDayButton.addEventListener("click", () => {
+    scrollToCurrentDay(containerSelector, "smooth");
+  });
 
   // Für jedes Datum-Array:
   sortedDates.forEach(date => {
@@ -269,25 +289,21 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
       return date.toLocaleTimeString("de-DE", { hour: "2-digit", minute: "2-digit" });
     }
 
-    // Erstelle ein Div für das Datum
+    // Erstellt ein Div für das Datum
     const tagDiv = document.createElement("div");
     tagDiv.classList.add("tag");
 
-    // Füge dem heutigen Datum die Klasse "today" hinzu (für scroll)
-    // Erzeuge den heutigen ISO-Datum-String (Format "YYYY-MM-DD")
-    const todayIso = new Date().toISOString().slice(0,10);
-    // Nehmen wir an, "date" ist bereits der ISO-Schlüssel aus matchesByDate
-    if (date === todayIso) {
-      tagDiv.classList.add("today");
-      console.log("Today element added:", tagDiv);
+    // Falls das Datum das 'upcomingDate' ist klasse "current" hinzufügen (für show-current Button)
+    if (date === upcomingDate) {
+      tagDiv.classList.add("current");
     }
 
     tagDiv.innerHTML = `
       <span class="datum">${germanDate}</span>
-      <div class="spiele-liste"></div>  <!-- Hier werden die Spiele hinzugefügt -->
+      <div class="spiele-liste"></div>
     `;
 
-    // Auf spieleListe zugreifen
+    // Auf spieleListe eines Tages zugreifen
     const spieleListe = tagDiv.querySelector(".spiele-liste");
 
     // "previousLeague" merken wir uns pro Datum, damit wir die Liga nur beim ersten Spiel einblenden
@@ -356,6 +372,7 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
       // Favoriten-Icon
       const isFavorite = favorites.some(fav => fav.id === match.id); // Prüfen, ob das Spiel in den Favoriten ist
       const starClass = isFavorite ? "active" : ""; // Wenn ja, füge die Klasse "active" hinzu (für CSS)
+      const animatedClass = favoriteIconAnimationState[match.id] ? "animated" : ""; // Wenn das Spiel gerade hinzugefügt wurde, füge die Klasse "animated" hinzu (für CSS)
 
       // HTML-Inhalt für das Spiel
       spielDiv.innerHTML = `
@@ -384,7 +401,7 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
               <span class="tore ${liveClass}">${awayGoals}</span>
             </div>
           </div>
-          <i class="fa-solid fa-star favoriten-icon ${starClass}"></i>
+          <i class="fa-solid fa-star favoriten-icon ${starClass} ${animatedClass}"></i>
         </div>
       `;
 
@@ -393,33 +410,52 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
       favoritenIcon.addEventListener("click", () => {
         const index = favorites.findIndex(fav => fav.id === match.id); // Index des Spiels in den Favoriten finden
         if (index >= 0) {
-          favorites.splice(index, 1); // Index Spiel aus den Favoriten entfernen
+          // Index Spiel aus den Favoriten entfernen
+          favorites.splice(index, 1);
           localStorage.setItem("favorites", JSON.stringify(favorites));
-          favoritenIcon.classList.remove("active");
         } else {
+          // Index Spiel zu den Favoriten hinzufügen
           favorites.push(match);
           localStorage.setItem("favorites", JSON.stringify(favorites));
-          favoritenIcon.classList.add("active");
+          favoriteIconAnimationState[match.id] = true;
+          // Nach 300ms (Dauer der Animation) den Zustand wieder entfernen und neu rendern
+          setTimeout(() => {
+            delete favoriteIconAnimationState[match.id];
+            // Rerendern der relevanten Bereiche, damit das Icon ohne "animated" Klasse erscheint:
+            renderFavoriten();
+            renderAlleSpiele();
+            if (match.competition.name === "Bundesliga") {
+              renderBundesliga();
+            } else if (match.competition.name === "Premier League") {
+              renderPremierLeague();
+            } else if (match.competition.name === "Primera Division") {
+              renderLaLiga();
+            } else if (match.competition.name === "Ligue 1") {
+              renderLigue1();
+            } else if (match.competition.name === "UEFA Champions League") {
+              renderChampionsLeague();
+            } else if (match.competition.name === "Serie A") {
+              renderSerieA();
+            }
+          }, 300);
         }
-        // Nur die Seiten aktualisieren, die das Spiel enthalten anstatt alle Spiele neu zu rendern
+        // Direkt nach dem Klick alle relevanten Bereiche neu rendern,
+        // damit der aktive Status (active) korrekt gesetzt wird
         renderFavoriten();
         renderAlleSpiele();
-        function renderCorrispondingPage() {
-          if (match.competition.name === "Bundesliga") {
-            renderBundesliga();
-          } else if (match.competition.name === "Premier League") {
-            renderPremierLeague();
-          } else if (match.competition.name === "Primera Division") {
-            renderLaLiga();
-          } else if (match.competition.name === "Ligue 1") {
-            renderLigue1();
-          } else if (match.competition.name === "UEFA Champions League") {
-            renderChampionsLeague();
-          } else if (match.competition.name === "Serie A") {
-            renderSerieA();
-          }
+        if (match.competition.name === "Bundesliga") {
+          renderBundesliga();
+        } else if (match.competition.name === "Premier League") {
+          renderPremierLeague();
+        } else if (match.competition.name === "Primera Division") {
+          renderLaLiga();
+        } else if (match.competition.name === "Ligue 1") {
+          renderLigue1();
+        } else if (match.competition.name === "UEFA Champions League") {
+          renderChampionsLeague();
+        } else if (match.competition.name === "Serie A") {
+          renderSerieA();
         }
-        renderCorrispondingPage();
       });
 
       // Liga nur bei erstem Spiel in diesem Datum einblenden
@@ -438,65 +474,98 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
     // Das tagDiv zur Seite hinzufügen
     container.appendChild(tagDiv);
   });
+
+  // Load Future Button erstellen (nach den Tagen)
+  const loadFutureButton = document.createElement("button");
+  loadFutureButton.classList.add("load-future");
+  loadFutureButton.textContent = "Spätere Spiele laden";
+  container.appendChild(loadFutureButton);
+  loadFutureButton.addEventListener("click", () => {
+    daysState[leagueKey].future += 10;
+    renderMatches(matchesArray, containerSelector, leagueKey);
+  });
+
+  // load Past/Future Buttons ausblenden wenn keine Spiele mehr vorhanden sind
+  const now = new Date();
+  now.setHours(0, 0, 0, 0);
+  // Zählt alle verfügbaren Matches in der Vergangenheit und Zukunft
+  const availablePast = matchesArray.filter(match => new Date(match.utcDate) < now);
+  const availableFuture = matchesArray.filter(match => new Date(match.utcDate) > now);
+  // Zählt, wie viele der sichtbaren Matches in der Vergangenheit bzw. Zukunft liegen
+  const visiblePast = visibleMatches.filter(match => new Date(match.utcDate) < now);
+  const visibleFuture = visibleMatches.filter(match => new Date(match.utcDate) > now);
+  if (visiblePast.length >= availablePast.length) {
+    loadPastButton.style.display = "none";
+  } else {
+    loadPastButton.style.display = "block";
+  }
+  if (visibleFuture.length >= availableFuture.length) {
+    loadFutureButton.style.display = "none";
+  } else {
+    loadFutureButton.style.display = "block";
+  }
+
+  // Sichtbarkeit des show-current-day Button aktualisieren
+  requestAnimationFrame(() => {
+    const container = document.querySelector(containerSelector);
+    if (container) {
+      updateShowCurrentDayButtonVisibility(container);
+    }
+  });
+
+  // Preloader entfernen
+  const preloader = document.querySelector("#preloader");
+  preloader.style.display = "none";
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 // Render Aufrufe für alle Ansichten
 //////////////////////////////////////////////////////////////////////////////////////
 function renderAlleSpiele() {
-  renderMatches(allMatches, ".page.alle-spiele .container", "alle-spiele");
+  renderMatches(allMatches, ".page.alle-spiele .spiele-anzeige", "alle-spiele");
 }
-
 function renderSerieA() {
-  renderMatches(serieAMatches, ".page.liga.serie-a .slide.spiele .container", "serie-a");
+  renderMatches(serieAMatches, ".page.liga.serie-a .slide.spiele .spiele-anzeige", "serie-a");
 }
-
 function renderLaLiga() {
-  renderMatches(laLigaMatches, ".page.liga.la-liga .slide.spiele .container", "la-liga");
+  renderMatches(laLigaMatches, ".page.liga.la-liga .slide.spiele .spiele-anzeige", "la-liga");
 }
-
 function renderPremierLeague() {
-  renderMatches(premierLeagueMatches, ".page.liga.premier-league .slide.spiele .container", "premier-league");
+  renderMatches(premierLeagueMatches, ".page.liga.premier-league .slide.spiele .spiele-anzeige", "premier-league");
 }
-
 function renderBundesliga() {
-  renderMatches(bundesligaMatches, ".page.liga.bundesliga .slide.spiele .container", "bundesliga");
+  renderMatches(bundesligaMatches, ".page.liga.bundesliga .slide.spiele .spiele-anzeige", "bundesliga");
 }
-
 function renderLigue1() {
-  renderMatches(ligue1Matches, ".page.liga.ligue-1 .slide.spiele .container", "ligue-1");
+  renderMatches(ligue1Matches, ".page.liga.ligue-1 .slide.spiele .spiele-anzeige", "ligue-1");
 }
-
 function renderChampionsLeague() {
-  renderMatches(championsLeagueMatches, ".page.liga.champions-league .slide.spiele .container", "champions-league");
+  renderMatches(championsLeagueMatches, ".page.liga.champions-league .slide.spiele .spiele-anzeige", "champions-league");
 }
-
 function renderFavoriten() {
-  renderMatches(favorites, ".page.favoriten .container", "favoriten");
+  renderMatches(favorites, ".page.favoriten .spiele-anzeige", "favoriten");
 }
 
+
+////////////////////////////////////////////////////////////////////////////////////////
+let firstLoop = true;
 
 async function init() {
-  initLoadMoreButtons();
   await fetchMatches();
   renderAlleSpiele();
   renderSerieA();
   renderBundesliga();
-  renderLaLiga();
   renderPremierLeague();
+  renderLaLiga();
   renderLigue1();
   renderChampionsLeague();
   renderFavoriten();
+  initShowCurrentDayButtonVisibilityAll();
+  if (firstLoop) {
+    firstLoop = false;
+    scrollToCurrentDay(".page.alle-spiele .spiele-anzeige", "auto");
+  }
 }
 init();
 
 setInterval(init, 60000);
-
-async function scrollToToday() {
-  document.querySelectorAll(".container").forEach(container => {
-    const todayTag = container.querySelector(".tag.today");
-    if (todayTag) {
-      todayTag.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  });
-}

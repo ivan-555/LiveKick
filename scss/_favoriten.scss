@@ -1,7 +1,13 @@
 @use "spiele-anzeige-template";
 
 .favoriten{
-    @extend %spiele-anzeige-template;
+    .spiele-anzeige{
+        @extend %spiele-anzeige-template;
+
+        .show-current-day{
+            bottom: 15.5%;
+        }
+    }
 
     &.active{
         display: block;

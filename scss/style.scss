@@ -5,6 +5,7 @@
 @use "liga";
 @use "alle-spiele";
 @use "favoriten";
+@use "preloader";
 
 *{
     margin: 0;
@@ -26,8 +27,13 @@ body{
     .page{
         color: var.$white-color;
         height: var.$page-height;
-        overflow-x: hidden;
+        overflow-x: hidden; // verhindert horizontales scrollen
         display: none; //wird in js per active klasse überschrieben
+
+        .spiele-anzeige{
+            height: 100%;
+            overflow: auto;
+        }
     }
 }
 
