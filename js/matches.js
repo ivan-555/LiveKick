@@ -8,7 +8,6 @@ let ligue1Matches = [];
 let championsLeagueMatches = [];
 let favoriteIconAnimationState = {};
 
-
 const daysState = {
   "alle-spiele":        { past: 5, future: 15 },
   "serie-a":            { past: 5, future: 15 },
@@ -339,7 +338,7 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
           return "img/Ligen/ligue-1-logo.png";
         } else if (match.competition.name === "UEFA Champions League") {
           return "img/Ligen/champions-league-logo.png";
-        } else {
+        } else if (match.competition.name === "Serie A") {
           return "img/Ligen/serie-a-logo.png";
         }
       }
@@ -356,17 +355,77 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
           return "Ligue 1";
         } else if (match.competition.name === "UEFA Champions League") {
           return "Champions League";
-        } else {
+        } else if (match.competition.name === "Serie A"){
           return "Serie A";
         }
       }
       const matchCompetitionName = getCompetitionName(match);
       const ligaTarget = matchCompetitionName.toLowerCase().replace(" ", "-"); // data-target Wert im nötigen format speichern (z.B. aus Champions League -> "champions-league")
       // Team-Infos mit Fallback
-      const homeTeamCrest = match.homeTeam?.crest || "img/placeholder.png";
-      const homeTeamName  = match.homeTeam?.shortName || "?"; // Wenn kein Name vorhanden, dann "?" (z.B. bei nicht festgelegten UCL Runden (Knockout Stage))
-      const awayTeamCrest = match.awayTeam?.crest || "img/placeholder.png";
-      const awayTeamName  = match.awayTeam?.shortName || "?";
+      let homeTeamName  = match.homeTeam?.shortName || "?"; // Wenn kein Name vorhanden, dann "?" (z.B. bei nicht festgelegten UCL Runden (Knockout Stage))
+      let awayTeamName  = match.awayTeam?.shortName || "?"
+      // ------- Team Namen fixen -------------
+      // Serie A
+      if (match.awayTeam.shortName === "Como 1907") {
+        awayTeamName = "Como";
+      } else if (match.homeTeam.shortName === "Como 1907") {
+        homeTeamName = "Como ";
+      }
+      if (match.awayTeam.shortName === "Venezia FC") {
+        awayTeamName = "Venezia";
+      } else if (match.homeTeam.shortName === "Venezia FC") {
+        homeTeamName = "Venezia";
+      }
+      // La Liga
+      if (match.awayTeam.shortName === "Barça") {
+        awayTeamName = "Barcelona";
+      } else if (match.homeTeam.shortName === "Barça") {
+        homeTeamName = "Barcelona";
+      }
+      if (match.awayTeam.shortName === "Athletic") {
+        awayTeamName = "Athletic Bilbao";
+      } else if (match.homeTeam.shortName === "Athletic") {
+        homeTeamName = "Athletic Bilbao";
+      }
+      if (match.awayTeam.shortName === "Atleti") {
+        awayTeamName = "Atletico Madrid";
+      } else if (match.homeTeam.shortName === "Atleti") {
+        homeTeamName = "Atletico Madrid";
+      }
+      // Ligue 1
+      if (match.awayTeam.shortName === "Olympique Lyon") {
+        awayTeamName = "Lyon";
+      } else if (match.homeTeam.shortName === "Olympique Lyon") {
+        homeTeamName = "Lyon";
+      }
+      if (match.awayTeam.shortName === "Stade de Reims") {
+        awayTeamName = "Reims";
+      } else if (match.homeTeam.shortName === "Stade de Reims") {
+        homeTeamName = "Reims";
+      }
+      if (match.awayTeam.shortName === "Angers SCO") {
+        awayTeamName = "Angers";
+      } else if (match.homeTeam.shortName === "Angers SCO") {
+        homeTeamName = "Angers";
+      }
+      let homeTeamCrest = match.homeTeam?.crest || "img/Logos/placeholder.png"; // Wenn kein Logo vorhanden, dann placeholder (z.B. bei nicht festgelegten UCL Runden (Knockout Stage)
+      let awayTeamCrest = match.awayTeam?.crest || "img/Logos/placeholder.png";
+      // ------- Team Crest fixen -------------
+      if (homeTeamName === "Juventus") {
+        homeTeamCrest = "img/Logos/juventus.png";
+      } else if (awayTeamName === "Juventus") {
+        awayTeamCrest = "img/Logos/juventus.png";
+      }
+      if (homeTeamName === "Nottingham") {
+        homeTeamCrest = "img/Logos/nottingham.png";
+      } else if (awayTeamName === "Nottingham") {
+        awayTeamCrest = "img/Logos/nottingham.png";
+      }
+      if (homeTeamName === "Venezia") {
+        homeTeamCrest = "img/Logos/venezia.png";
+      } else if (awayTeamName === "Venezia") {
+        awayTeamCrest = "img/Logos/venezia.png";
+      }
       const homeGoals     = match.score?.fullTime?.home ?? "";
       const awayGoals     = match.score?.fullTime?.away ?? "";
       // Favoriten-Icon

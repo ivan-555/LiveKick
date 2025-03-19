@@ -4,7 +4,7 @@ const pages = document.querySelectorAll('.page');
 const navbarHighlight = document.querySelector('.navbar .highlight');
 
 let initialClickStates = {
-  // alle-spiele scrollToCurrentDay wird beim laden der Seite aufgerufen (api.js)
+  // alle-spiele scrollToCurrentDay wird beim laden der Seite aufgerufen (matches.js)
   "favoriten": true,
   "serie-a": true,
   "premier-league": true,
@@ -82,10 +82,20 @@ const ligaPages = document.querySelectorAll('.page.liga');
 ligaPages.forEach((ligaPage) => {
   const ligaSlider = ligaPage.querySelector('.slider');
   const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
+  const ligaSliderTabelle = ligaPage.querySelector('.slider .slide.tabelle');
 
   ligaSlideButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      ligaSlider.style.transform = `translateX(-${index * 100}%)`;
+      // Wenn die Tabelle ausgeblendet ist, transform anpassen
+      if (ligaSliderTabelle.style.display === "none") {
+        if (index === 0) {
+          ligaSlider.style.transform = `translateX(0)`;
+        } else if (index === 2) {
+          ligaSlider.style.transform = `translateX(-100%)`;
+        }
+      } else {
+        ligaSlider.style.transform = `translateX(-${index * 100}%)`;
+      }
 
       ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
@@ -94,7 +104,7 @@ ligaPages.forEach((ligaPage) => {
 });
 
 
-// Bei klick auf den Liga Header eines Spiels wird die Liga Seite angezeigt (in api.js bei render angewandt)
+// Bei klick auf den Liga Header eines Spiels wird die Liga Seite angezeigt (in matches.js bei renderMatches angewandt)
 function showLigaPage (target) {
   pages.forEach(page => {
     page.classList.remove('active');
@@ -133,3 +143,35 @@ function showLigaPage (target) {
     scrollToCurrentDay(".page.champions-league", "auto");
   }
 };
+
+
+// Aktuelle Season in der Liga Seite anzeigen
+async function renderCurrentSeason (league) {
+  const season = await getCurrentSeason(league);
+  const seasonElement = document.querySelector(`.page.liga.${league} .heading .beschreibung .saison`);
+  seasonElement.textContent = season;
+};
+
+async function getCurrentSeason (league) {
+  const response = await fetch(`https://livekick-express-server.onrender.com/${league}/season`);
+  const data = await response.json(); // 2024-2025
+  let formattedData;
+  const [year1, year2] = data.split("-");
+  const shortYear1 = year1.slice(-2);
+  const shortYear2 = year2.slice(-2);
+  formattedData = `${shortYear1}/${shortYear2}`; // 24/25
+  return formattedData;
+}
+
+function renderAllSeasons () {
+  renderCurrentSeason("serie-a");
+  renderCurrentSeason("premier-league");
+  renderCurrentSeason("la-liga");
+  renderCurrentSeason("bundesliga");
+  renderCurrentSeason("ligue-1");
+  renderCurrentSeason("champions-league");
+}
+
+renderAllSeasons();
+
+setInterval(renderAllSeasons, 60000);

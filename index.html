@@ -9,7 +9,8 @@
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- JS -->
-    <script src="js/api.js" defer></script>
+    <script src="js/matches.js" defer></script>
+    <script src="js/table.js" defer></script>
     <script src="js/app.js" defer></script>
 </head>
 <body>
@@ -73,7 +74,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/italien-flagge.png" alt="Flagge">
                             <span>Italien</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -98,25 +99,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 
@@ -219,7 +249,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/spanien-flagge.webp" alt="Flagge">
                             <span>Spanien</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -244,25 +274,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 
@@ -365,7 +424,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/england-flagge.webp" alt="Flagge">
                             <span>England</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -390,25 +449,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 
@@ -511,7 +599,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/deutschland-flagge.png" alt="Flagge">
                             <span>Deutschland</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -536,25 +624,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 
@@ -657,7 +774,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/frankreich-flagge.webp" alt="Flagge">
                             <span>Frankreich</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -682,25 +799,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 
@@ -803,7 +949,7 @@
                         <div class="beschreibung">
                             <img src="img/Länder/europa-flagge.png" alt="Flagge">
                             <span>Europa</span>
-                            <span>24/25</span>
+                            <span class="saison"><!-- 24/25 --></span>
                         </div>
                     </div>
                 </div>
@@ -828,25 +974,54 @@
                         <div class="tags">
                             <span>#</span>
                             <span>Team</span>
-                            <span>S</span>
-                            <span>P</span>
+                            <span>Pt.</span>
                             <span>S</span>
                             <span>N</span>
                             <span>U</span>
                         </div>
                         <ul class="liste">
                             <!-- <li>
-                                <span class="rang">1</span>
-                                <span class="team">
-                                    <img src="" alt="">
-                                    Napoli
-                                </span>
-                                <span class="gespielt">20</span>
-                                <span class="punkte">47</span>
-                                <span class="siege">15</span>
-                                <span class="niederlagen">3</span>
-                                <span class="unentschieden">2</span>
+                                <div class="main" onclick="showDetails(event)">
+                                    <span class="rang">${rank.intRank}</span>
+                                    <span class="team">
+                                        <img src="${teamBadge}">
+                                        ${teamName}
+                                    </span>
+                                    <span class="punkte">${rank.intPoints}</span>
+                                    <span class="siege">${rank.intWin}</span>
+                                    <span class="niederlagen">${rank.intLoss}</span>
+                                    <span class="unentschieden">${rank.intDraw}</span>
+                                    <i class="fa-solid fa-chevron-down"></i>
+                                </div>
+                                <div class="details">
+                                    <div class="gespielt">
+                                        <span>G:</span>
+                                        <span>${rank.intPlayed}</span>
+                                    </div>
+                                    <div class="form">
+                                        <span class="${getColor(form[4])}">${form[4]}</span>
+                                        <span class="${getColor(form[3])}">${form[3]}</span>
+                                        <span class="${getColor(form[2])}">${form[2]}</span>
+                                        <span class="${getColor(form[1])}">${form[1]}</span>
+                                        <span class="${getColor(form[0])}">${form[0]}</span>
+                                    </div>
+                                </div>
                             </li> -->
+                            <!-- <div class="legende"></div>
+                                <b>Legende</b>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                                <div>
+                                    <span class="farbe"></span>
+                                    <span class="bedeutung"></span>
+                                </div>
+                            </div> -->
                         </ul>
                     </div>
 

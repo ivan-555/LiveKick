@@ -38,8 +38,8 @@
                     gap: 5px;
 
                     img{
-                        height: 15px;
-                        width: 30px;
+                        height: 12px;
+                        width: 20px;
                     }
     
                     span:last-child{
@@ -52,7 +52,8 @@
         nav{
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center;
+            gap: 40px;
             padding: 5px 40px;
             padding-top: 10px;
 
@@ -103,7 +104,7 @@
 
             .tabelle{
                 margin: var.$spacing; // wie window padding durch %spiele-anzeige-template
-                padding: 10px 3px;
+                padding: 10px 3px 3px 3px;
                 border-radius: var.$border-radius;
                 background: var.$primary-color;
                 height: calc(var.$page-height - var.$liga-heading-height - (var.$spacing * 2)); // - margin = (2* spacing)
@@ -111,37 +112,185 @@
     
                 .tags{
                     display: grid;
-                    grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 1fr;
-                    gap: 10px;
+                    grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 10px;
+                    gap: 0px;
                     place-items: center;
-                    margin-bottom: 10px;
+                    margin-bottom: 15px;
                     color: grey;
     
                     span:nth-child(2){
                         place-self: start;
+                        margin-left: 5px;
                     }
                 }
     
-                ul{
+                ul.liste{
                     display: flex;
                     flex-direction: column;
-                    gap: 20px;
+                    gap: 20px;         
     
                     li{
-                        display: grid;
-                        grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 1fr;
-                        gap: 10px;
-                        place-items: center;
-    
-                        img{
-                            height: 20px;
+                        &:nth-child(-n+4){
+                            .rang{
+                                color: black;
+
+                                &::after{
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 23px;
+                                    height: 23px;
+                                    background: rgb(29, 174, 55);
+                                    border-radius: 50%;
+                                    z-index: -1;
+                                }
+                            }
                         }
-    
-                        .team{
-                            place-self: start;
+                        &:nth-child(5){
+                            .rang{
+                                color: black;
+
+                                &::after{
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 22px;
+                                    height: 22px;
+                                    background: rgb(17, 109, 230);
+                                    border-radius: 50%;
+                                    z-index: -1;
+                                }
+                            }
+                        }
+                        &:nth-last-child(-n+4){
+                            .rang{
+                                color: black;
+
+                                &::after{
+                                    content: "";
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    width: 22px;
+                                    height: 22px;
+                                    background: rgb(246, 91, 91);
+                                    border-radius: 50%;
+                                    z-index: -1;
+                                }
+                            }
+                        }
+
+                        .main{
+                            display: grid;
+                            grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 10px;
+                            gap: 0px;
+                            place-items: center;
+        
+                            img{
+                                height: 20px;
+                            }
+        
+                            .team{
+                                place-self: start;
+                                display: flex;
+                                align-items: center;
+                                gap: 7px;
+                                margin-left: 5px;
+                            }
+
+                            .rang{
+                                position: relative;
+                                z-index: 2;
+                                font-weight: 600;
+                                font-size: .95rem;
+                            }
+
+                            i.fa-chevron-down{
+                                cursor: pointer;
+                                transition: transform 0.3s ease;
+                                font-size: .4rem;
+
+                                &.open{
+                                    transform: rotate(180deg);
+                                }
+                            }
+                        }
+
+                        .details{
+                            display: flex;
+                            align-items: end;
+                            justify-content: center;
+                            gap: 50px;
+                            height: 0px;
+                            opacity: 0;
+                            overflow: hidden;
+                            transition: height 0.3s ease;
+                            padding-bottom: 3px;
+
+                            &.open{
+                                height: 35px;
+                                opacity: 1;
+                            }
+
+                            .form{
+                                span{
+                                    &.grün{
+                                        color: rgb(29, 174, 55);
+                                    }
+                                    &.grau{
+                                        color: grey;
+                                    }
+                                    &.rot{
+                                        color: rgb(246, 91, 91);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .legende{
+                        width: 100%;
+                        padding: 10px;
+                        background: rgb(21, 21, 21);
+                        display: flex;
+                        flex-direction: column;
+                        gap: 4px;
+                        border-radius: var.$border-radius;
+                        
+
+                        b{
+                            font-weight: 600;
+                            margin-bottom: 10px;
+                            display: inline-block;
+                        }
+
+                        div{
                             display: flex;
                             align-items: center;
-                            gap: 5px;
+                            justify-content: start;
+                            gap: 10px;
+                            margin-left: 2px;
+
+                            .farbe{
+                                width: 10px;
+                                height: 10px;
+                                border-radius: 50%;
+
+                                &.grün{
+                                    background: rgb(29, 174, 55);
+                                }
+                                &.blau{
+                                    background: rgb(17, 109, 230);
+                                }
+                                &.rot{
+                                    background: rgb(246, 91, 91);
+                                }
+                            }
                         }
                     }
                 }
@@ -298,6 +447,74 @@
         
                             img{
                                 height: 20px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Anpassungen für Champions League
+    &.champions-league{
+        .window{
+            .slider{
+                .tabelle{
+                    ul.liste{
+                        li{
+                            &:nth-child(-n+8){ // Nur die ersten 8 Elemente
+                                .rang{
+                                    color: black;
+        
+                                    &::after{
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        width: 23px;
+                                        height: 23px;
+                                        background: rgb(29, 174, 55);
+                                        border-radius: 50%;
+                                        z-index: -1;
+                                    }
+                                }
+                            }
+                            &:nth-child(n+9):nth-child(-n+24) { // Elemente von 9 bis 24
+                                .rang{
+                                    color: black;
+        
+                                    &::after{
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        width: 22px;
+                                        height: 22px;
+                                        background: rgb(17, 109, 230);
+                                        border-radius: 50%;
+                                        z-index: -1;
+                                    }
+                                }
+                            }
+                            &:nth-child(n+25){ // Elemente ab 25
+                                .rang{
+                                    color: black;
+        
+                                    &::after{
+                                        content: "";
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        width: 22px;
+                                        height: 22px;
+                                        background: rgb(246, 91, 91);
+                                        border-radius: 50%;
+                                        z-index: -1;
+                                    }
+                                }
                             }
                         }
                     }
