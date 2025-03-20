@@ -82,21 +82,11 @@ const ligaPages = document.querySelectorAll('.page.liga');
 ligaPages.forEach((ligaPage) => {
   const ligaSlider = ligaPage.querySelector('.slider');
   const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
-  const ligaSliderTabelle = ligaPage.querySelector('.slider .slide.tabelle');
+  const slideTabelle = ligaPage.querySelector('.slide.tabelle');
 
   ligaSlideButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
-      // Wenn die Tabelle ausgeblendet ist, transform anpassen
-      if (ligaSliderTabelle.style.display === "none") {
-        if (index === 0) {
-          ligaSlider.style.transform = `translateX(0)`;
-        } else if (index === 2) {
-          ligaSlider.style.transform = `translateX(-100%)`;
-        }
-      } else {
-        ligaSlider.style.transform = `translateX(-${index * 100}%)`;
-      }
-
+      ligaSlider.style.transform = `translateX(-${index * 100}%)`; // -0%, -100%
       ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
     });
