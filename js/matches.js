@@ -204,6 +204,16 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
 
   container.innerHTML = ""; // Reset des Inhalts
 
+  // Wenn keine Favoriten hinzugefügt wurden, zeige eine Nachricht an
+  if (leagueKey === "favoriten") {
+    if (favorites.length === 0) {
+      const noFavoritesMessage = document.createElement("p");
+      noFavoritesMessage.classList.add("no-favorites-message");
+      noFavoritesMessage.textContent = "Noch keine Favoriten hinzugefügt";
+      container.appendChild(noFavoritesMessage);
+    }
+  }
+
   // Load Past Button erstellen
   const loadPastButton = document.createElement("button");
   loadPastButton.classList.add("load-past");
@@ -571,10 +581,6 @@ function renderMatches(matchesArray, containerSelector, leagueKey) {
       updateShowCurrentDayButtonVisibility(container);
     }
   });
-
-  // Preloader entfernen
-  const preloader = document.querySelector("#preloader");
-  preloader.style.display = "none";
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -624,6 +630,8 @@ async function init() {
     firstLoop = false;
     scrollToCurrentDay(".page.alle-spiele .spiele-anzeige", "auto");
   }
+  const preloader = document.querySelector("#preloader");
+  preloader.style.display = "none";
 }
 init();
 
