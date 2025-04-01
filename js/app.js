@@ -83,14 +83,53 @@ ligaPages.forEach((ligaPage) => {
   const ligaSlider = ligaPage.querySelector('.slider');
   const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
 
+  let currentIndex = 0;
+
+  // Buttons Steuerung
   ligaSlideButtons.forEach((button, index) => {
     button.addEventListener('click', () => {
+      currentIndex = index;
       ligaSlider.style.transform = `translateX(-${index * 100}%)`; // -0%, -100%
       ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
       button.classList.add('active');
     });
   });
+
+  // Touch-Swipe Funktionalität
+  let startX = 0;
+
+  ligaSlider.addEventListener('touchstart', (e) => {
+    // Erste Fingerposition merken
+    startX = e.touches[0].clientX;
+  });
+
+  ligaSlider.addEventListener('touchend', (e) => {
+    // Letzte Fingerposition
+    const endX = e.changedTouches[0].clientX;
+    const diffX = endX - startX;  // Positive Werte = Swipe nach rechts, negative = Swipe nach links
+
+    // Schwellenwert für das Auslösen des Swipes
+    if (Math.abs(diffX) > 50) {
+      if (diffX < 0) {
+        if (currentIndex < ligaSlideButtons.length - 1) {
+          currentIndex++;
+        }
+      } else {
+        if (currentIndex > 0) {
+          currentIndex--;
+        }
+      }
+
+      // Slider verschieben
+      ligaSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Active‐State für Buttons aktualisieren
+      ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
+      ligaSlideButtons[currentIndex].classList.add('active');
+    }
+  });
 });
+
 
 
 // Bei klick auf den Liga Header eines Spiels wird die Liga Seite angezeigt (in matches.js bei renderMatches angewandt)
