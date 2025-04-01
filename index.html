@@ -14,602 +14,604 @@
     <script src="js/app.js" defer></script>
 </head>
 <body>
-    <div id="preloader">
-        <h1>LiveKick</h1>
-        <div class="loader">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
-    </div>
-
-    <header>
-        <h1>LiveKick</h1>
-    </header>
-
-    <main>
-        <div class="page alle-spiele active">
-            <div class="spiele-anzeige">
-                <!-- load-past Button -->
-                <!-- Spiele -->
-                <!-- load-future Button -->
-                <!-- show-current-day Button -->
+    <div class="width-container">
+        <div id="preloader">
+            <h1>LiveKick</h1>
+            <div class="loader">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
             </div>
         </div>
     
-        <div class="page ligen">
-            <div class="liga-selektor" data-target="serie-a">
-                <img src="img/Ligen/serie-a-logo.png" alt="">
-                <span>Serie A</span>
+        <header>
+            <h1>LiveKick</h1>
+        </header>
+    
+        <main>
+            <div class="page alle-spiele active">
+                <div class="spiele-anzeige">
+                    <!-- load-past Button -->
+                    <!-- Spiele -->
+                    <!-- load-future Button -->
+                    <!-- show-current-day Button -->
+                </div>
             </div>
-            <div class="liga-selektor" data-target="la-liga">
-                <img src="img/Ligen/la-liga-logo.png" alt="">
-                <span>La Liga</span>
+        
+            <div class="page ligen">
+                <div class="liga-selektor" data-target="serie-a">
+                    <img src="img/Ligen/serie-a-logo.png" alt="">
+                    <span>Serie A</span>
+                </div>
+                <div class="liga-selektor" data-target="la-liga">
+                    <img src="img/Ligen/la-liga-logo.png" alt="">
+                    <span>La Liga</span>
+                </div>
+                <div class="liga-selektor" data-target="premier-league">
+                    <img src="img/Ligen/premier-league-logo.png" alt="">
+                    <span>Premier League</span>
+                </div>
+                <div class="liga-selektor" data-target="bundesliga">
+                    <img src="img/Ligen/bundesliga-logo.avif" alt="">
+                    <span>Bundesliga</span>
+                </div>
+                <div class="liga-selektor" data-target="ligue-1">
+                    <img src="img/Ligen/ligue-1-logo.png" alt="">
+                    <span>Ligue 1</span>
+                </div>
+                <div class="liga-selektor" data-target="champions-league">
+                    <img src="img/Ligen/champions-league-logo.png" alt="">
+                    <span>Champions League</span>
+                </div>
             </div>
-            <div class="liga-selektor" data-target="premier-league">
-                <img src="img/Ligen/premier-league-logo.png" alt="">
-                <span>Premier League</span>
+    
+            <div class="page liga serie-a">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/serie-a-logo.png" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">Serie A</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/italien-flagge.png" alt="Flagge">
+                                <span>Italien</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="liga-selektor" data-target="bundesliga">
-                <img src="img/Ligen/bundesliga-logo.avif" alt="">
-                <span>Bundesliga</span>
+    
+            <div class="page liga la-liga">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/la-liga-logo.png" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">La Liga</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/spanien-flagge.webp" alt="Flagge">
+                                <span>Spanien</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="liga-selektor" data-target="ligue-1">
-                <img src="img/Ligen/ligue-1-logo.png" alt="">
-                <span>Ligue 1</span>
+    
+            <div class="page liga premier-league">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/premier-league-logo.png" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">Premier League</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/england-flagge.webp" alt="Flagge">
+                                <span>England</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="liga-selektor" data-target="champions-league">
-                <img src="img/Ligen/champions-league-logo.png" alt="">
-                <span>Champions League</span>
+    
+            <div class="page liga bundesliga">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/bundesliga-logo.avif" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">Bundesliga</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/deutschland-flagge.png" alt="Flagge">
+                                <span>Deutschland</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
             </div>
+    
+            <div class="page liga ligue-1">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/ligue-1-logo.png" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">Ligue 1</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/frankreich-flagge.webp" alt="Flagge">
+                                <span>Frankreich</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="page liga champions-league">
+                <div class="heading">
+                    <div class="container">
+                        <img src="img/Ligen/champions-league-logo.png" alt="Logo" class="liga-logo">
+                        <div class="wrapper">
+                            <span class="liga-name">Champions League</span>
+                            <div class="beschreibung">
+                                <img src="img/Länder/europa-flagge.png" alt="Flagge">
+                                <span>Europa</span>
+                                <span class="saison"><!-- 24/25 --></span>
+                            </div>
+                        </div>
+                    </div>
+                    <nav>
+                        <span class="slide-button active" data-target="spiele">Spiele</span>
+                        <span class="slide-button" data-target="tabelle">Tabelle</span>
+                    </nav>
+                </div>
+                <div class="window">
+                    <div class="slider">
+                        <div class="slide spiele">
+                            <div class="spiele-anzeige">
+                                <!-- load-past Button -->
+                                <!-- Spiele -->
+                                <!-- load-future Button -->
+                                <!-- show-current-day Button -->
+                            </div>
+                        </div>
+                            
+                        <div class="slide tabelle">
+                            <div class="tags">
+                                <span>#</span>
+                                <span>Team</span>
+                                <span>Pt.</span>
+                                <span>S</span>
+                                <span>N</span>
+                                <span>U</span>
+                            </div>
+                            <ul class="liste">
+                                <!-- <li>
+                                    <div class="main" onclick="showDetails(event)">
+                                        <span class="rang">${rank.intRank}</span>
+                                        <span class="team">
+                                            <img src="${teamBadge}">
+                                            ${teamName}
+                                        </span>
+                                        <span class="punkte">${rank.intPoints}</span>
+                                        <span class="siege">${rank.intWin}</span>
+                                        <span class="niederlagen">${rank.intLoss}</span>
+                                        <span class="unentschieden">${rank.intDraw}</span>
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </div>
+                                    <div class="details">
+                                        <div class="gespielt">
+                                            <span>G:</span>
+                                            <span>${rank.intPlayed}</span>
+                                        </div>
+                                        <div class="form">
+                                            <span class="${getColor(form[4])}">${form[4]}</span>
+                                            <span class="${getColor(form[3])}">${form[3]}</span>
+                                            <span class="${getColor(form[2])}">${form[2]}</span>
+                                            <span class="${getColor(form[1])}">${form[1]}</span>
+                                            <span class="${getColor(form[0])}">${form[0]}</span>
+                                        </div>
+                                    </div>
+                                </li> -->
+                                <!-- <div class="legende"></div>
+                                    <b>Legende</b>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                    <div>
+                                        <span class="farbe"></span>
+                                        <span class="bedeutung"></span>
+                                    </div>
+                                </div> -->
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+            <div class="page favoriten">
+                <div class="spiele-anzeige">
+                    <!-- load-past Button -->
+                    <!-- Spiele -->
+                    <!-- load-future Button -->
+                    <!-- show-current-day Button -->
+                </div>
+            </div>
+        </main>
+    
+        <div class="navbar">
+            <span data-target="ligen">
+                <i class="fa-solid fa-trophy"></i>
+                Ligen
+            </span>
+            <span data-target="alle-spiele" class="active">
+                <i class="fa-solid fa-clock"></i>
+                Spiele
+            </span>
+            <span data-target="favoriten">
+                <i class="fa-solid fa-star"></i>
+                Fav
+            </span>
         </div>
-
-        <div class="page liga serie-a">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/serie-a-logo.png" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">Serie A</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/italien-flagge.png" alt="Flagge">
-                            <span>Italien</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page liga la-liga">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/la-liga-logo.png" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">La Liga</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/spanien-flagge.webp" alt="Flagge">
-                            <span>Spanien</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page liga premier-league">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/premier-league-logo.png" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">Premier League</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/england-flagge.webp" alt="Flagge">
-                            <span>England</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page liga bundesliga">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/bundesliga-logo.avif" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">Bundesliga</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/deutschland-flagge.png" alt="Flagge">
-                            <span>Deutschland</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page liga ligue-1">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/ligue-1-logo.png" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">Ligue 1</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/frankreich-flagge.webp" alt="Flagge">
-                            <span>Frankreich</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page liga champions-league">
-            <div class="heading">
-                <div class="container">
-                    <img src="img/Ligen/champions-league-logo.png" alt="Logo" class="liga-logo">
-                    <div class="wrapper">
-                        <span class="liga-name">Champions League</span>
-                        <div class="beschreibung">
-                            <img src="img/Länder/europa-flagge.png" alt="Flagge">
-                            <span>Europa</span>
-                            <span class="saison"><!-- 24/25 --></span>
-                        </div>
-                    </div>
-                </div>
-                <nav>
-                    <span class="slide-button active" data-target="spiele">Spiele</span>
-                    <span class="slide-button" data-target="tabelle">Tabelle</span>
-                </nav>
-            </div>
-            <div class="window">
-                <div class="slider">
-                    <div class="slide spiele">
-                        <div class="spiele-anzeige">
-                            <!-- load-past Button -->
-                            <!-- Spiele -->
-                            <!-- load-future Button -->
-                            <!-- show-current-day Button -->
-                        </div>
-                    </div>
-                        
-                    <div class="slide tabelle">
-                        <div class="tags">
-                            <span>#</span>
-                            <span>Team</span>
-                            <span>Pt.</span>
-                            <span>S</span>
-                            <span>N</span>
-                            <span>U</span>
-                        </div>
-                        <ul class="liste">
-                            <!-- <li>
-                                <div class="main" onclick="showDetails(event)">
-                                    <span class="rang">${rank.intRank}</span>
-                                    <span class="team">
-                                        <img src="${teamBadge}">
-                                        ${teamName}
-                                    </span>
-                                    <span class="punkte">${rank.intPoints}</span>
-                                    <span class="siege">${rank.intWin}</span>
-                                    <span class="niederlagen">${rank.intLoss}</span>
-                                    <span class="unentschieden">${rank.intDraw}</span>
-                                    <i class="fa-solid fa-chevron-down"></i>
-                                </div>
-                                <div class="details">
-                                    <div class="gespielt">
-                                        <span>G:</span>
-                                        <span>${rank.intPlayed}</span>
-                                    </div>
-                                    <div class="form">
-                                        <span class="${getColor(form[4])}">${form[4]}</span>
-                                        <span class="${getColor(form[3])}">${form[3]}</span>
-                                        <span class="${getColor(form[2])}">${form[2]}</span>
-                                        <span class="${getColor(form[1])}">${form[1]}</span>
-                                        <span class="${getColor(form[0])}">${form[0]}</span>
-                                    </div>
-                                </div>
-                            </li> -->
-                            <!-- <div class="legende"></div>
-                                <b>Legende</b>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                                <div>
-                                    <span class="farbe"></span>
-                                    <span class="bedeutung"></span>
-                                </div>
-                            </div> -->
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="page favoriten">
-            <div class="spiele-anzeige">
-                <!-- load-past Button -->
-                <!-- Spiele -->
-                <!-- load-future Button -->
-                <!-- show-current-day Button -->
-            </div>
-        </div>
-    </main>
-
-    <div class="navbar">
-        <span data-target="ligen">
-            <i class="fa-solid fa-trophy"></i>
-            Ligen
-        </span>
-        <span data-target="alle-spiele" class="active">
-            <i class="fa-solid fa-clock"></i>
-            Spiele
-        </span>
-        <span data-target="favoriten">
-            <i class="fa-solid fa-star"></i>
-            Fav
-        </span>
     </div>
 </body>
 </html>

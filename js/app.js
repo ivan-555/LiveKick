@@ -82,7 +82,6 @@ const ligaPages = document.querySelectorAll('.page.liga');
 ligaPages.forEach((ligaPage) => {
   const ligaSlider = ligaPage.querySelector('.slider');
   const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
-  const slideTabelle = ligaPage.querySelector('.slide.tabelle');
 
   ligaSlideButtons.forEach((button, index) => {
     button.addEventListener('click', () => {

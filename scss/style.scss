@@ -17,8 +17,13 @@
 body{
     font-family: 'Poppins', sans-serif;
     height: 100svh;
-    background: rgb(21, 21, 21);
     overflow: hidden;
+    background: rgb(21, 21, 21);
+    
+    .width-container{
+        max-width: 800px;
+        margin: 0 auto;
+    }
 
     ::-webkit-scrollbar {
         display: none;

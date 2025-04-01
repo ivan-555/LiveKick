@@ -11,7 +11,9 @@
         border: none;
         border-radius: var.$border-radius;
         display: block;
-        margin: 0 auto;
+    }
+    .load-past{
+        margin: var.$spacing auto var.$spacing auto;
     }
     .load-future{
         margin: calc(var.$spacing * 2) auto var.$spacing auto;
@@ -178,5 +180,11 @@
                 }
             }   
         }
+    }
+}
+
+@media (min-width: 805px){
+    %spiele-anzeige-template{
+        padding: var.$spacing 0;
     }
 }

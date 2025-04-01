@@ -84,7 +84,7 @@
     .window{
         .slider{
             display: grid;
-            grid-template-columns: repeat(3, 100vw);
+            grid-template-columns: repeat(3, 100%);
             transform: translateX(0); // Notwendig damit fixed Elemente nicht verrutschen
             transition: transform 0.5s ease-in-out;
 
@@ -112,7 +112,7 @@
     
                 .tags{
                     display: grid;
-                    grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 10px;
+                    grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 20px;
                     gap: 0px;
                     place-items: center;
                     margin-bottom: 15px;
@@ -187,7 +187,7 @@
 
                         .main{
                             display: grid;
-                            grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 10px;
+                            grid-template-columns: 1fr 5fr 1fr 1fr 1fr 1fr 20px;
                             gap: 0px;
                             place-items: center;
         
@@ -371,6 +371,19 @@
     .heading{
         .container{
             justify-content: center;
+        }
+    }
+    .tabelle{
+        .tags{
+            grid-template-columns: 45px 5fr 50px 50px 50px 50px 20px !important;
+        }
+
+        ul.liste{
+            li{
+                .main{
+                    grid-template-columns: 45px 5fr 50px 50px 50px 50px 20px !important;
+                }
+            }
         }
     }
 }
