@@ -2,7 +2,7 @@
 
 ### Projektbeschreibung
 
-LiveKick ist eine Fußball-Spieldaten-Webseite, die über einen Express-Server Daten aus den football-data.org- und TheSportsDB-APIs abruft. Es werden Spiele und Tabellen aus sechs verschiedenen Ligen (Serie A, Bundesliga, La Liga, Premier League, Ligue 1, Champions League) dargestellt.
+LiveKick ist eine Fußball-Spieldaten-Webseite, die über meinen [Express-Server](https://github.com/ivan-555/LiveKick-Express-Server) Daten aus den football-data.org und TheSportsDB APIs abruft. Es werden Spiele und Tabellen aus sechs verschiedenen Ligen (Serie A, Bundesliga, La Liga, Premier League, Ligue 1, Champions League) dargestellt.
 Die Seite aktualisiert sich jede Minute automatisch, um Spielstände möglichst „live“ anzuzeigen. Aufgrund der kostenlosen API-Tarife können jedoch Verzögerungen von etwa fünf Minuten auftreten.
 
 ### Features
