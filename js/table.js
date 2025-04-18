@@ -58,23 +58,23 @@ async function renderTable(array, containerSelektor) {
     // Wenn keine Tabelle von der API geliefert wird, wird die Tabelle ausgeblendet
     if (!array[0] || array[0].length === 0) {
         if (array === serieATable) {
-            document.querySelector(".page.liga.serie-a .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.serie-a .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.serie-a .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.serie-a .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         } else if (array === bundesligaTable) {
-            document.querySelector(".page.liga.bundesliga .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.bundesliga .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.bundesliga .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.bundesliga .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         } else if (array === premierLeagueTable) {
-            document.querySelector(".page.liga.premier-league .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.premier-league .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.premier-league .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.premier-league .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         } else if (array === laligaTable) {
-            document.querySelector(".page.liga.la-liga .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.la-liga .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.la-liga .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.la-liga .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         } else if (array === ligue1Table) {
-            document.querySelector(".page.liga.ligue-1 .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.ligue-1 .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.ligue-1 .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.ligue-1 .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         } else if (array === championsLeagueTable) {
-            document.querySelector(".page.liga.champions-league .window .slide.tabelle").style.display = "none";
-            document.querySelector(".page.liga.champions-league .heading nav .slide-button[data-target=tabelle]").style.display = "none";
+            document.querySelector(".page.liga.champions-league .window .slide.tabelle")?.setAttribute('hidden', '');
+            document.querySelector(".page.liga.champions-league .heading nav .slide-button[data-target=tabelle]")?.setAttribute('hidden', '');
         }
         return;
     }

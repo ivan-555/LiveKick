@@ -87,59 +87,54 @@ ligaSelektors.forEach(selector => {
 
 
 // In der Liga zwischen den Slides wechseln
-const ligaPages = document.querySelectorAll('.page.liga');
-
-ligaPages.forEach((ligaPage) => {
+const getVisibleSlides = ligaPage => ligaPage.querySelectorAll('.slide:not([hidden])');
+document.querySelectorAll('.page.liga').forEach(ligaPage => {
   const ligaSlider = ligaPage.querySelector('.slider');
-  const ligaSlideButtons = ligaPage.querySelectorAll('.slide-button');
-
+  const buttons    = ligaPage.querySelectorAll('.slide-button');
   let currentIndex = 0;
+  let startX       = 0;
 
-  // Buttons Steuerung
-  ligaSlideButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-      currentIndex = index;
-      ligaSlider.style.transform = `translateX(-${index * 100}%)`; // -0%, -100%
-      ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
+  /* ---------- Klick auf einen Button ---------- */
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      if (btn.hasAttribute('hidden')) return;
+
+      const visibleSlides = getVisibleSlides(ligaPage);
+      const targetClass = btn.dataset.target;
+      const targetSlide = ligaPage.querySelector(`.slide.${targetClass}`);
+
+      currentIndex = [...visibleSlides].indexOf(targetSlide);
+
+      ligaSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      buttons.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
     });
   });
 
-  // Touch-Swipe Funktionalität
-  let startX = 0;
-
-  ligaSlider.addEventListener('touchstart', (e) => {
-    // Erste Fingerposition merken
+  /* ---------- Touch‑Swipe ---------- */
+  ligaSlider.addEventListener('touchstart', e => {
     startX = e.touches[0].clientX;
   });
 
-  ligaSlider.addEventListener('touchend', (e) => {
-    // Letzte Fingerposition
-    const endX = e.changedTouches[0].clientX;
-    const diffX = endX - startX;  // Positive Werte = Swipe nach rechts, negative = Swipe nach links
+  ligaSlider.addEventListener('touchend', e => {
+    const diffX = e.changedTouches[0].clientX - startX;
+    if (Math.abs(diffX) < 50) return;  // Threshold
 
-    // Schwellenwert für das Auslösen des Swipes
-    if (Math.abs(diffX) > 50) {
-      if (diffX < 0) {
-        if (currentIndex < ligaSlideButtons.length - 1) {
-          currentIndex++;
-        }
-      } else {
-        if (currentIndex > 0) {
-          currentIndex--;
-        }
-      }
+    const visibleSlides = getVisibleSlides(ligaPage);
+    const max           = visibleSlides.length - 1;
 
-      // Slider verschieben
-      ligaSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+    if (diffX < 0 && currentIndex < max) currentIndex++;
+    if (diffX > 0 && currentIndex > 0)   currentIndex--;
 
-      // Active‐State für Buttons aktualisieren
-      ligaSlideButtons.forEach(btn => btn.classList.remove('active'));
-      ligaSlideButtons[currentIndex].classList.add('active');
-    }
+    ligaSlider.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+    buttons.forEach(b => b.classList.remove('active'));
+
+    const newTarget = visibleSlides[currentIndex].classList.item(1);
+    ligaPage.querySelector(`.slide-button[data-target="${newTarget}"]`)?.classList.add('active');
   });
 });
-
 
 
 // Bei klick auf den Liga Header eines Spiels wird die Liga Seite angezeigt (in matches.js bei renderMatches angewandt)

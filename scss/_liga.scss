@@ -6,6 +6,8 @@
         display: block;
     }
 
+    [hidden] { display:none !important; }
+
     .heading{
         background: var.$primary-color;
         height: var.$liga-heading-height;
